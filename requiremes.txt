@@ -5,5 +5,4 @@ pyTelegramBotAPI
 gspread
 oauth2client
 datetime
-os
-bs4
+
