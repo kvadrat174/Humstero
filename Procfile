@@ -1,1 +1,1 @@
-worker: python organizer.py
+worker: python auccion.py
