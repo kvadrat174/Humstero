@@ -31,10 +31,8 @@ print(game_time(d))
 def Game():
     m = d.minute
 
-def Countdown(id1,slovar):
-    sl = slovar[id1]
-    Btsum = sl[0]
-    course = sl[1]
+def Countdown(id1):
+
     w = time.time()
     d = datetime.datetime.now()
     a = BC.get_latest_bitcoin_price()
@@ -57,7 +55,7 @@ def Countdown(id1,slovar):
     start = time.strftime("%H:%M:%S", time.localtime(wait1))
     wait2 = wait1+300
     end = time.strftime("%H:%M:%S", time.localtime(wait2))
-    SP.Stavka(slovar, id1,wait1)
+    SP.Stavka(id1,wait1)
     SP.clear()
     time.sleep(wait)
     sp = BC.get_latest_bitcoin_price()

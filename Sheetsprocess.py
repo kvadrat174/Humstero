@@ -45,7 +45,7 @@ def UserList(id1,nm):
         wks.update_cell(val, 2, nm);
         return False;
 
-def Stavka(slovar, id1,wait1):
+def Stavka(id1,wait1):
     wks = sh.worksheet('id')
     values_list = wks.col_values(1, value_render_option='UNFORMATTED_VALUE')
     if id1 in values_list:
@@ -56,12 +56,9 @@ def Stavka(slovar, id1,wait1):
         today = time.strftime("%H:%M:%S", time.localtime(wait1))
         endt = time.strftime("%H:%M:%S", time.localtime(wait1+300))
         w = int(wait1//10)
-        sl = slovar[id1]
-        Btsum = sl[0]
-        course = sl[1]
         wks.update_cell(a,9,str(w))
-        wks.update_cell(a,4,Btsum)
-        wks.update_cell(a,5,course)
+        #wks.update_cell(a,4,Btsum)
+        #wks.update_cell(a,5,course)
         wks.update_cell(a, 6, today)
         wks.update_cell(a,7,endt)
 
@@ -116,9 +113,18 @@ def Result_2(d2,c) :
     wks1.update_cell(a, 8, d)
     wks1.update_cell(a, 9, c)
 
-def update_cell(a,b,c):
-    wks = sh.worksheet('game')
-    return wks.update_cell(a,b,c)
+def add_course(id1,course):
+    wks = sh.worksheet('id')
+    cell = wks.find(str(id1))
+    row = cell.row
+    wks.update_cell(row,5,course)
+
+def add_btsum(id1,Btsum):
+    wks = sh.worksheet('id')
+    cell = wks.find(str(id1))
+    row = cell.row
+    wks.update_cell(row,4,Btsum)
+
 def get_value(a,b,c):
     wks = sh.worksheet('id')
 def id_cell(a,b,c):

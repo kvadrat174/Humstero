@@ -98,8 +98,7 @@ def get_course_num(message): #получаем фамилию
         Btsum = float(message.text);
         if float(btc) > float(Btsum):
 
-            a = [Btsum]
-            slovar = dict([(id1, st)])
+            SP.add_btsum(id1,Btsum)
             bit = BC.get_latest_bitcoin_price()
             d = datetime.datetime.today()
             gt = TB.game_time(d)
@@ -120,9 +119,7 @@ def get_course_stavka(message): #получаем фамилию
     try:
         course = float(message.text)
         id1 = message.from_user.id
-        a = slovar[id1]
-        a.append(course)
-        slovar[id1] = a
+        SP.add_course(id1,course)
         nm = message.from_user.first_name
         keyboard = telebot.types.InlineKeyboardMarkup()
         keyboard.row(telebot.types.InlineKeyboardButton('Да', callback_data='yes'),
@@ -150,7 +147,7 @@ def callback_key(message):
 
         #SP.Stavka(course, Btsum, id1)
         #DB.Stavka(id1, Btsum,course)
-        res = TB.Countdown(id1,slovar)
+        res = TB.Countdown(id1)
         if res == False:
 
             bot.send_message(message.from_user.id,'Вы были единственным участником, \n попробуйте еще раз чуть позже!' )
