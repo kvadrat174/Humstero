@@ -157,8 +157,8 @@ def print_res(wait1):
     if a<2:
         return False
     print(len(cell))
-    else
-        
+    elif a>=2:
+        i = 0
         while i < len(cell):
             wks = sh.worksheet('id')
             row = cell[i].row
