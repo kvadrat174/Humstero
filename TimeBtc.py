@@ -4,7 +4,7 @@ import math
 from threading import Thread
 import BTCcurs as BC
 import Sheetsprocess as SP
-import DB
+
 ost_m=int()
 ost_s=int()
 ost = str()
