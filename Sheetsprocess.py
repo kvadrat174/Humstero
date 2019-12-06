@@ -45,7 +45,7 @@ def UserList(id1,nm):
         wks.update_cell(val, 2, nm);
         return False;
 
-def Stavka(course, Btsum, id1,wait1):
+def Stavka(slovar, id1,wait1):
     wks = sh.worksheet('id')
     values_list = wks.col_values(1, value_render_option='UNFORMATTED_VALUE')
     if id1 in values_list:
@@ -56,6 +56,9 @@ def Stavka(course, Btsum, id1,wait1):
         today = time.strftime("%H:%M:%S", time.localtime(wait1))
         endt = time.strftime("%H:%M:%S", time.localtime(wait1+300))
         w = int(wait1//10)
+        sl = slovar[id1]
+        Btsum = sl[0]
+        course = sl[1]
         wks.update_cell(a,9,str(w))
         wks.update_cell(a,4,Btsum)
         wks.update_cell(a,5,course)
