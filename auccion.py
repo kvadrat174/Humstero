@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 
 import telebot
 import requests
@@ -9,7 +9,7 @@ import BTCcurs as BC
 import TimeBtc as TB
 import DB
 import datetime
-import sqlite3
+
 
 global id1
 
