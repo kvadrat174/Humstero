@@ -4,5 +4,3 @@ Requests
 pyTelegramBotAPI
 gspread
 oauth2client
-datetime
-
