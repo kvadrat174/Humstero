@@ -67,7 +67,7 @@ def Countdown(id1,course,Btsum):
         c = BC.get_latest_bitcoin_price()
 
         SP.GameTime(d2,c,id1,sp)
-        SP.print_res(wait1)
+        SP.print_res(wait1,id1)
         SP.saveres()
         return True
     else:

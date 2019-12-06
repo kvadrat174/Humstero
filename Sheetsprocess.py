@@ -152,14 +152,17 @@ def print_res(wait1):
     wks = sh.worksheet('id')
     w = int(wait1//10)
     cell = wks.findall(str(w))
-    a = int(len(cell))
+
     i = 0
     while i < len(cell):
         wks = sh.worksheet('id')
         row = cell[i].row
-        value = wks.row_values(row)
-        add_date(value)
-        i = i + 1
+        value = wks.row_values(row, value_render_option="UNFORMATTED_VALUE")
+        if id1 in value:
+            add_date(value)
+            i = i + 1
+        else:
+            i = i + 1
 
 
 def add_date(value):
