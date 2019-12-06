@@ -167,11 +167,11 @@ def print_res(wait1,id1):
         wks = sh.worksheet('id')
         row = cell[i].row
         value = wks.row_values(row, value_render_option="UNFORMATTED_VALUE")
-        if id1 in value:
-            add_date(value)
-            i = i + 1
-        else:
-            i = i + 1
+        #if id1 in value:
+        add_date(value)
+        i = i + 1
+        #else:
+            #i = i + 1
 
 
 def add_date(value):
