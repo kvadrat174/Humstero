@@ -1,1 +1,1 @@
-worker: python auccion.py
+web: python auccion.py
