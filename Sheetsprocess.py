@@ -1,5 +1,6 @@
 import oauth2client
 import gspread
+
 import httplib2
 import apiclient.discovery
 from oauth2client.service_account import ServiceAccountCredentials
@@ -164,8 +165,8 @@ def print_res(wait1):
 
 def add_date(value):
     wks1 = sh.worksheet('game')
-    print(value[1])
-    print(wks1.col_values(7))
+    spisok = wks1.col_values(13,value_render_option="UNFORMATTED_VALUE")
+
     n0 = value[0]
     n3 = value[3]
     n4 = value[4]
@@ -174,23 +175,26 @@ def add_date(value):
     n7 = value[7]
     n8 = value[8]
     n9 = value[9]
-    wks1 = sh.worksheet('game')
+    if n0 not in spisok:
 
-    ln1 = len(wks1.col_values(13)) + 1
-    wks1.update_cell(16, 9, n7)
-    wks1.update_cell(ln1, 13, n0)
-    wks1.update_cell(ln1, 14, n8)
-    wks1.update_cell(ln1, 15, n4)
-    wks1.update_cell(ln1, 16, n3)
+        wks1 = sh.worksheet('game')
 
-    wks1.update_cell(16, 8, n6)
-    # wks1.update_cell(ln,7,time.strftime("%d:%y:%m", time.time()))
+        ln1 = len(wks1.col_values(13)) + 1
+        wks1.update_cell(16, 9, n7)
+        wks1.update_cell(ln1, 13, n0)
+        wks1.update_cell(ln1, 14, n8)
+        wks1.update_cell(ln1, 15, n4)
+        wks1.update_cell(ln1, 16, n3)
 
-    wks1.update_cell(16, 25, n8)
-    wks1.update_cell(16, 26, n9)
-    wks1.update_cell(16, 27, n7)
-    wks1.update_cell(16, 28, n5)
-    wks1.update_cell(16, 29, n6)
+        wks1.update_cell(16, 8, n6)
+        # wks1.update_cell(ln,7,time.strftime("%d:%y:%m", time.time()))
+
+        wks1.update_cell(16, 25, n8)
+        wks1.update_cell(16, 26, n9)
+        wks1.update_cell(16, 27, n7)
+        wks1.update_cell(16, 28, n5)
+        wks1.update_cell(16, 29, n6)
+
 
 def final(id1):
     wks = sh.worksheet('game')
@@ -227,7 +231,7 @@ def saveres():
     wks = sh.worksheet('game')
     val = wks.row_values(16, value_render_option="UNFORMATTED_VALUE")
     res = val[24:39]
-    saveres(res)
+    saver(res)
 
 def saver(res):
     wks1 = sh.worksheet('game result')
