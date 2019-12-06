@@ -1,6 +1,5 @@
 import oauth2client
 import gspread
-
 import httplib2
 import apiclient.discovery
 from oauth2client.service_account import ServiceAccountCredentials
@@ -8,7 +7,7 @@ import datetime
 import time
 import BTCcurs as BT
 import TimeBtc as TB
-import sqlite3
+
 
 
 
