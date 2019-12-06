@@ -152,12 +152,12 @@ def print_res(wait1):
     wks = sh.worksheet('id')
     w = int(wait1//10)
     cell = wks.findall(str(w))
-    a = len(cell)
+    a = int(len(cell))
     i = 0
     if a<2:
         return False
     print(len(cell))
-    elif a>=2:
+    else:
         i = 0
         while i < len(cell):
             wks = sh.worksheet('id')
