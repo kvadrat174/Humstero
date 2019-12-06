@@ -194,6 +194,8 @@ def add_date(value):
         wks1.update_cell(16, 27, n7)
         wks1.update_cell(16, 28, n5)
         wks1.update_cell(16, 29, n6)
+    elif n0 in spisok:
+        print(1)
 
 
 def final(id1):
@@ -221,8 +223,8 @@ def final(id1):
 
 def balance_fin(result_btc, id1):
     wks = sh.worksheet('id')
-    cel = wks.find(str(id1))
-    row = cel.row
+    cel = wks.findall(str(id1))
+    row = cel[0].row
     bal = wks.cell(row, 3, value_render_option="UNFORMATTED_VALUE").value
     nb = float(bal) + float(result_btc)
     wks.update_cell(row, 3, float(nb))
