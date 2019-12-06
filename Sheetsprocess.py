@@ -157,7 +157,7 @@ def clear():
     # Update in batch
     wks.update_cells(cell_list2)
 
-def print_res(wait1):
+def print_res(wait1,id1):
     wks = sh.worksheet('id')
     w = int(wait1//10)
     cell = wks.findall(str(w))
