@@ -7,9 +7,8 @@ import random
 import Sheetsprocess as SP
 import BTCcurs as BC
 import TimeBtc as TB
-import DB
 import datetime
-import sqlite3
+
 
 global id1
 
