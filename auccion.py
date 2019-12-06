@@ -9,7 +9,6 @@ import BTCcurs as BC
 import TimeBtc as TB
 import datetime
 
-
 global id1
 
 
@@ -146,16 +145,15 @@ def callback_key(message):
         #SP.Stavka(course, Btsum, id1)
         #DB.Stavka(id1, Btsum,course)
         TB.Countdown(id1,course,Btsum)
-
+        if TB.Countdown(id1,course,Btsum) == False:
+            bot.send_message(message.chat_id,'Вы были единственным участником, \n попробуйте еще раз чуть позже!' )
         #task1 = Thread(target=TB.Countdown(id1,course,Btsum))
         #task2 = Thread(target=SP.Results(d2, c))
-
-
         #task1.start()
-
         #task1.join()
-        a = SP.final(id1)
-        bot.send_message(message.from_user.id,''+str(a)+'' )
+        else:
+            a = SP.final(id1)
+            bot.send_message(message.chat_id,''+str(a)+'' )
 
 
 
@@ -171,5 +169,6 @@ def callback_key(message):
 
 
 
-bot.polling(none_stop=True, interval=0)
+if __name__ == '__main__':
+    bot.polling()
 
