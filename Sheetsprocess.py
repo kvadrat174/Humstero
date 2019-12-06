@@ -156,7 +156,7 @@ def print_res(wait1):
     i = 0
     if a<2:
         return False
-    print(len(cell))
+
     else:
         i = 0
         while i < len(cell):
