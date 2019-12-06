@@ -147,7 +147,7 @@ def callback_key(message):
         res = TB.Countdown(id1,course,Btsum)
         if res == False:
 
-            bot.send_message(message.chat_id,'Вы были единственным участником, \n попробуйте еще раз чуть позже!' )
+            bot.send_message(message.from_user.id,'Вы были единственным участником, \n попробуйте еще раз чуть позже!' )
         #task1 = Thread(target=TB.Countdown(id1,course,Btsum))
         #task2 = Thread(target=SP.Results(d2, c))
         #task1.start()
@@ -155,7 +155,7 @@ def callback_key(message):
         elif res == True:
 
             a = SP.final(id1)
-            bot.send_message(message.chat_id,''+str(a)+'' )
+            bot.send_message(message.from_user.id,''+str(a)+'' )
 
 
 
