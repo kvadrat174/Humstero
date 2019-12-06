@@ -154,17 +154,12 @@ def print_res(wait1):
     cell = wks.findall(str(w))
     a = int(len(cell))
     i = 0
-    if a<2:
-        return False
-
-    else:
-        i = 0
-        while i < len(cell):
-            wks = sh.worksheet('id')
-            row = cell[i].row
-            value = wks.row_values(row)
-            add_date(value)
-            i = i + 1
+    while i < len(cell):
+        wks = sh.worksheet('id')
+        row = cell[i].row
+        value = wks.row_values(row)
+        add_date(value)
+        i = i + 1
 
 
 def add_date(value):
@@ -246,6 +241,15 @@ def saver(res):
     for i in res:
         x = x + 1
         wks1.update_cell(row, x, i)
+
+def kol_uch(wait_f):
+    wks = sh.worksheet('id')
+    val = wks.col_values(9,value_render_option="UNFORMATTED_VALUE" )
+    nu = 0
+    for i in val:
+        if i == wait_f:
+            nu = nu +1
+    return nu
 
 
 

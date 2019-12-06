@@ -4,7 +4,7 @@ import math
 from threading import Thread
 import BTCcurs as BC
 import Sheetsprocess as SP
-
+import DB
 ost_m=int()
 ost_s=int()
 ost = str()
@@ -50,7 +50,7 @@ def Countdown(id1,course,Btsum):
     wait = int(ost_s + ost_m * 60)
     #записать начальный курс в БД4
     wait1 = float(wait + w)
-    wait_f = wait1//10
+    wait_f = int(wait1//10)
     start = time.strftime("%H:%M:%S", time.localtime(wait1))
     wait2 = wait1+300
     end = time.strftime("%H:%M:%S", time.localtime(wait2))
@@ -60,14 +60,19 @@ def Countdown(id1,course,Btsum):
     sp = BC.get_latest_bitcoin_price()
 
     #d1 = datetime.datetime.utcnow()
-    time.sleep(300)
-    d2 = int((time.time())//100)
+    nu = SP.kol_uch(wait_f)
+    if nu>1:
+        time.sleep(300)
+        d2 = int((time.time())//100)
+        c = BC.get_latest_bitcoin_price()
 
-    c = BC.get_latest_bitcoin_price()
+        SP.GameTime(d2,c,id1,sp)
+        SP.print_res(wait1)
+        SP.saveres()
+        return True
+    else:
+        return False
 
-    SP.GameTime(d2,c,id1,sp)
-    SP.print_res(wait1)
-    SP.saveres()
 
 
 
