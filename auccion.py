@@ -120,6 +120,9 @@ def get_course_stavka(message): #получаем фамилию
         course = float(message.text)
         id1 = message.from_user.id
         SP.add_course(id1,course)
+        st = SP.get_course(id1)
+        Btsum = st[3]
+        course = st[4]
         nm = message.from_user.first_name
         keyboard = telebot.types.InlineKeyboardMarkup()
         keyboard.row(telebot.types.InlineKeyboardButton('Да', callback_data='yes'),

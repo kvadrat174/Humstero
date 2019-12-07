@@ -262,6 +262,11 @@ def kol_uch(wait_f):
         if i == wait_f:
             nu = nu +1
     return nu
+def get_course(id1):
+    wks = sh.worksheet('id')
+    cell = wks.find(str(id1))
+    row = cell.row
+    return wks.row_values(row, value_render_option="UNFORMATTED_VALUE")
 
 
 
