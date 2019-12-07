@@ -174,6 +174,4 @@ def callback_key(message):
 
 
 
-if __name__ == '__main__':
-    bot.polling()
-
+bot.polling(none_stop=True, interval=0)
