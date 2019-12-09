@@ -88,6 +88,7 @@ def Countdown(id1):
     vi = res[1] * 2 * sp
     vi = round(vi,2)
     ob = res[0] * sp
+    ob = round(ob,2)
     return vi, ob, nu , wait1, wait_f, sp
 
 def countdown2(nu,id1,sp, wait1):
