@@ -94,7 +94,7 @@ def get_course_num(message): #получаем курс
     Btsum = message.text;
     id1 = message.from_user.id
 
-    btc = SP.CheckBalance(id1)
+
 
 
     try:
