@@ -86,6 +86,7 @@ def Countdown(id1):
     nu = SP.kol_uch(wait_f)
     res = SP.nachalo(wait_f, id1)
     vi = res[1] * 2 * sp
+    vi = round(vi,2)
     ob = res[0] * sp
     return vi, ob, nu , wait1, wait_f, sp
 

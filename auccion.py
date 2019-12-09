@@ -163,7 +163,7 @@ def callback_key(message):
         wait1 = res1[3]
         wait_f = res1[4]
         sp = res1[5]
-        bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
+        bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников -  '+str(nu)+'\n Cумма депозитов:  '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
         res = TB.countdown2(nu,id1,sp,wait1)
 
         if res == False:
