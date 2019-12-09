@@ -82,6 +82,7 @@ def send_text(message):
 
 @bot.message_handler(content_types=['text'])
 def start(message):
+        id1 = message.from_user.id
         btc = str(SP.CheckBalance(id1))
         bot.send_message(message.from_user.id, 'Укажите размер ставки в BTC.\nВаш баланс BTC: '+str(btc)+'');
 
@@ -94,7 +95,7 @@ def get_course_num(message): #получаем курс
     Btsum = message.text;
     id1 = message.from_user.id
 
-
+    btc = str(SP.CheckBalance(id1))
 
 
     try:
