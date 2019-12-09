@@ -156,7 +156,16 @@ def callback_key(message):
 
         #SP.Stavka(course, Btsum, id1)
         #DB.Stavka(id1, Btsum,course)
-        res = TB.Countdown(id1)
+        res1 = TB.Countdown(id1)
+        vi = res1[0]
+        ob = res1[1]
+        nu = res1[2]
+        wait1 = res1[3]
+        wait_f = res1[4]
+        sp = res1[5]
+        bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
+        res = TB.countdown2(nu,id1,sp,wait1)
+
         if res == False:
 
             bot.send_message(message.from_user.id,'Вы были единственным участником, \n попробуйте еще раз чуть позже!' )

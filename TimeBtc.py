@@ -4,9 +4,7 @@ import math
 from threading import Thread
 import BTCcurs as BC
 import Sheetsprocess as SP
-import telebot
 
-bot = telebot.TeleBot('910383229:AAHAMJTe1pgWgfom0kJVxWpDVYNXPZAGFqY')
 
 
 ost_m=int()
@@ -84,18 +82,16 @@ def Countdown(id1):
     SP.Stavka(id1,wait1)
     SP.clear()
     time.sleep(wait)
-
-
     sp = BC.get_latest_bitcoin_price()
-
-    #d1 = datetime.datetime.utcnow()
     nu = SP.kol_uch(wait_f)
-    if nu>1:
-        res = SP.nachalo(wait_f,id1)
-        vi = res[1]*2*sp
-        ob = res[0]*sp
+    res = SP.nachalo(wait_f, id1)
+    vi = res[1] * 2 * sp
+    ob = res[0] * sp
+    return vi, ob, nu , wait1, wait_f, sp
 
-        bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
+def countdown2(nu,id1,sp, wait1)
+    if nu>1:
+       
         time.sleep(300)
         d2 = int((time.time())//100)
         c = BC.get_latest_bitcoin_price()
