@@ -147,8 +147,8 @@ def callback_key(message):
     if message.data == 'yes':
 
         id1 = message.from_user.id
-
-        vi = TB.vr_igri() - 300
+        t = time.time()
+        vi = TB.vr_igri() - 300 - t
         d = time.strftime("%M:%S", time.localtime(vi))
 
         bot.answer_callback_query(message.id, text='Ваша ставка принята',show_alert=True)
