@@ -87,7 +87,7 @@ def Countdown(id1):
     #d1 = datetime.datetime.utcnow()
     nu = SP.kol_uch(wait_f)
     if nu>1:
-        res = SP.nachalo(wait_f)
+        res = SP.nachalo(wait_f,id1)
         vi = res[1]*2*sp
         ob = res[0]*sp
 

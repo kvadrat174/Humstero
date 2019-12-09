@@ -268,7 +268,7 @@ def get_course(id1):
     row = cell.row
     return wks.row_values(row, value_render_option="UNFORMATTED_VALUE")
 
-def nachalo(wait_f):
+def nachalo(wait_f,id1):
     wks = sh.worksheet('id')
     cell = wks.findall(str(wait_f))
     ob = 0
