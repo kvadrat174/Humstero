@@ -151,7 +151,7 @@ def callback_key(message):
         d = time.strftime("%M:%S", time.localtime(vi))
 
         bot.answer_callback_query(message.id, text='Ваша ставка принята',show_alert=True)
-        bot.send_message(message.from_user.id, 'Ваша ставка принята\n Игра начнется через '+str(d)'\n Дождитесь окончания игры чтобы узнать результат!', reply_markup=keyboard1)
+        bot.send_message(message.from_user.id, 'Ваша ставка принята\n Игра начнется через '+str(d)+' \n Дождитесь окончания игры чтобы узнать результат!', reply_markup=keyboard1)
 
         #SP.Stavka(course, Btsum, id1)
         #DB.Stavka(id1, Btsum,course)
