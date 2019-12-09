@@ -176,8 +176,8 @@ def callback_key(message):
         bot.send_message(message.from_user.id, "Пожалуйста введите данные заново.", reply_markup=keyboard1)
 
 
-def startgame_msg(id1,nu, ob, vi):
-    bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
+#def startgame_msg(id1,nu, ob, vi):
+    #bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
 
 
 

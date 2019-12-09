@@ -4,7 +4,7 @@ import math
 from threading import Thread
 import BTCcurs as BC
 import Sheetsprocess as SP
-import auccion
+
 
 ost_m=int()
 ost_s=int()
@@ -81,6 +81,7 @@ def Countdown(id1):
     SP.Stavka(id1,wait1)
     SP.clear()
     time.sleep(wait)
+
     sp = BC.get_latest_bitcoin_price()
 
     #d1 = datetime.datetime.utcnow()
@@ -90,7 +91,7 @@ def Countdown(id1):
         vi = res[1]*2*sp
         ob = res[0]*sp
 
-        auccion.startgame_msg(id1,nu, ob, vi)
+        bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
         time.sleep(300)
         d2 = int((time.time())//100)
         c = BC.get_latest_bitcoin_price()
