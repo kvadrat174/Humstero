@@ -4,6 +4,7 @@ import math
 from threading import Thread
 import BTCcurs as BC
 import Sheetsprocess as SP
+import auccion
 
 ost_m=int()
 ost_s=int()
@@ -30,6 +31,28 @@ print(game_time(d))
 
 def Game():
     m = d.minute
+
+def vr_igri():
+
+    w = time.time()
+    d = datetime.datetime.now()
+    a = BC.get_latest_bitcoin_price()
+    s = d.second
+    m = d.minute
+    if m % 5 != 0:
+        ost_m = 5 - m % 5
+    elif m % 5 == 0:
+        ost_m = 0
+    if s % 60 != 0:
+        ost_s = (60 - s % 60) // 1
+        if ost_m >= 1:
+            ost_m = ost_m - 1
+    elif s % 60 == 0:
+        ost_s = 0;
+    wait = int(ost_s + ost_m * 60)
+    #записать начальный курс в БД4
+    wait1 = float(wait + w)+300
+    return wait1
 
 def Countdown(id1):
 
@@ -63,6 +86,11 @@ def Countdown(id1):
     #d1 = datetime.datetime.utcnow()
     nu = SP.kol_uch(wait_f)
     if nu>1:
+        res = SP.nachalo(wait_f)
+        vi = res[1]*2*sp
+        ob = res[0]*sp
+
+        auccion.startgame_msg(id1,nu, ob, vi)
         time.sleep(300)
         d2 = int((time.time())//100)
         c = BC.get_latest_bitcoin_price()

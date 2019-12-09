@@ -8,6 +8,7 @@ import Sheetsprocess as SP
 import BTCcurs as BC
 import TimeBtc as TB
 import datetime
+import time
 
 global id1
 
@@ -55,6 +56,7 @@ def send_text(message):
         n=random.randint(5,50)
         d = datetime.datetime.today()
         gt = TB.game_time(d)
+
         bot.send_message(message.from_user.id,'Текущий курс BTC: \n '+str(bit)+' USD\n Текущее количество участников '+str(n)+'\n Начало через '+str(gt)+'. \n Желаете принять участие?  ', reply_markup=keyboard2)
 
     elif message.text.lower() == 'посмотреть результаты':
@@ -80,12 +82,13 @@ def send_text(message):
 
 @bot.message_handler(content_types=['text'])
 def start(message):
-        bot.send_message(message.from_user.id, "Введите сумму ставки");
+        btc = str(SP.CheckBalance(id1))
+        bot.send_message(message.from_user.id, 'Укажите размер ставки в BTC.\nВаш баланс BTC: '+str(btc)+'');
 
         bot.register_next_step_handler(message, get_course_num); #следующий шаг – функция get_course_num
 
 
-def get_course_num(message): #получаем фамилию
+def get_course_num(message): #получаем курс
     global Btsum;
     global slovar;
     Btsum = message.text;
@@ -102,7 +105,9 @@ def get_course_num(message): #получаем фамилию
             bit = BC.get_latest_bitcoin_price()
             d = datetime.datetime.today()
             gt = TB.game_time(d)
-            bot.send_message(message.chat.id, 'Текущий курс '+str(bit)+'\n Игра начнется через '+str(gt)+'\n По истечению времени ставка автоматически \n принимается на следующую игру \n Укажите ожидаемый размер курса!');
+            vi = TB.vr_igri()
+            d = time.strftime("%M:%S", time.localtime(vi))
+            bot.send_message(message.chat.id, 'Текущий курс '+str(bit)+'\n Игра начнется через '+str(gt)+'\n По истечению времени ставка автоматически \n принимается на следующую игру \n Укажите ожидаемое значение курса BTC на '+str(d)+'');
             bot.register_next_step_handler(message, get_course_stavka);
         else:
             bot.send_message(message.chat.id, 'Ваша ставка превышает сумму Вашего банка!\n Попробуйте уменьшить сумму или пополните счет!', reply_markup=keyboard1)
@@ -142,11 +147,11 @@ def callback_key(message):
 
         id1 = message.from_user.id
 
-
-
+        vi = TB.vr_igri() - 300
+        d = time.strftime("%M:%S", time.localtime(vi))
 
         bot.answer_callback_query(message.id, text='Ваша ставка принята',show_alert=True)
-        bot.send_message(message.from_user.id, "Дождитесь окончания игры чтобы узнать результат!", reply_markup=keyboard1)
+        bot.send_message(message.from_user.id, 'Ваша ставка принята\n Игра начнется через '+str(d)'\n Дождитесь окончания игры чтобы узнать результат!', reply_markup=keyboard1)
 
         #SP.Stavka(course, Btsum, id1)
         #DB.Stavka(id1, Btsum,course)
@@ -169,6 +174,10 @@ def callback_key(message):
     elif message.data == 'no':
         bot.answer_callback_query(message.id, text='данные не сохранены',show_alert=True)
         bot.send_message(message.from_user.id, "Пожалуйста введите данные заново.", reply_markup=keyboard1)
+
+
+def startgame_msg(id1,nu, ob, vi):
+    bot.send_message(message.from_user.id, 'Игра началась!\nКоличество участников '+str(nu)+'\n Cумма депозитов '+str(ob)+'$\n В случае победы ваш выигрыш составит до '+str(vi)+'$')
 
 
 

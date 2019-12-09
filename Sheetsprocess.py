@@ -268,6 +268,21 @@ def get_course(id1):
     row = cell.row
     return wks.row_values(row, value_render_option="UNFORMATTED_VALUE")
 
+def nachalo(wait_f):
+    wks = sh.worksheet('id')
+    cell = wks.findall(str(wait_f))
+    ob = 0
+    a = 0
+    for i in cell:
+        row = i.row
+        ob +=wks.cell(row,4,value_render_option="UNFORMATTED_VALUE").value
+        rows = wks.row_values(row, value_render_option="UNFORMATTED_VALUE")
+        if id1 in rows:
+            a = rows[3]
+
+    return ob,a
+
+
 
 
 
