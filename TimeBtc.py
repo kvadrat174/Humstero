@@ -89,9 +89,9 @@ def Countdown(id1):
     ob = res[0] * sp
     return vi, ob, nu , wait1, wait_f, sp
 
-def countdown2(nu,id1,sp, wait1)
+def countdown2(nu,id1,sp, wait1):
     if nu>1:
-       
+
         time.sleep(300)
         d2 = int((time.time())//100)
         c = BC.get_latest_bitcoin_price()
