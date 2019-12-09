@@ -4,6 +4,9 @@ import math
 from threading import Thread
 import BTCcurs as BC
 import Sheetsprocess as SP
+import telebot
+
+bot = telebot.TeleBot('910383229:AAHAMJTe1pgWgfom0kJVxWpDVYNXPZAGFqY')
 
 
 ost_m=int()
@@ -81,6 +84,7 @@ def Countdown(id1):
     SP.Stavka(id1,wait1)
     SP.clear()
     time.sleep(wait)
+
 
     sp = BC.get_latest_bitcoin_price()
 
