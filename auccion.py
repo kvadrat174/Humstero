@@ -107,7 +107,7 @@ def get_course_num(message): #получаем курс
             d = datetime.datetime.today()
             gt = TB.game_time(d)
             vi = TB.vr_igri()
-            d = time.strftime("%M:%S", time.localtime(vi))
+            d = time.strftime("%H:%M-%S", time.localtime(vi))
             bot.send_message(message.chat.id, 'Текущий курс '+str(bit)+'\n Игра начнется через '+str(gt)+'\n По истечению времени ставка автоматически \n принимается на следующую игру \n Укажите ожидаемое значение курса BTC на '+str(d)+'');
             bot.register_next_step_handler(message, get_course_stavka);
         else:
