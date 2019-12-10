@@ -75,7 +75,7 @@ def send_text(message):
         bot.send_message(message.from_user.id, 'Осторожность хорошее качество!', reply_markup=keyboard1)
 
     else:
-        bot.send_message(message.from_user.id, 'Вы ввели некорректное сообщение! ', reply_markup=keyboard1)
+        bot.send_message(message.from_user.id, 'Вы ввели некорректное сообщение!\n Нажмите /start ', reply_markup=keyboard1)
 
 
 
