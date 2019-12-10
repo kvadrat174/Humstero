@@ -220,6 +220,7 @@ def final(id1):
     prognoz = val[14]
     result_s = round(val[21], 2)
     result_btc = stavka * result
+    result_btc = round(result_btc,6)
     result = round(result, 5)
     print(stavka, result, result_s, result_btc)
     curs = wks.acell('I16').value
