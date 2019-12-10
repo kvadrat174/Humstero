@@ -74,6 +74,9 @@ def send_text(message):
     elif message.text.lower() == 'назад':
         bot.send_message(message.from_user.id, 'Осторожность хорошее качество!', reply_markup=keyboard1)
 
+    else:
+        bot.send_message(message.from_user.id, 'Вы ввели некорректное сообщение! ', reply_markup=keyboard1)
+
 
 
 
@@ -107,7 +110,7 @@ def get_course_num(message): #получаем курс
             d = datetime.datetime.today()
             gt = TB.game_time(d)
             vi = TB.vr_igri()
-            d = time.strftime("%H:%M-%S", time.localtime(vi))
+            d = time.strftime("%H:%M:%S", time.localtime(vi))
             bot.send_message(message.chat.id, 'Текущий курс '+str(bit)+'\n Игра начнется через '+str(gt)+'\n По истечению времени ставка автоматически \n принимается на следующую игру \n Укажите ожидаемое значение курса BTC на '+str(d)+'');
             bot.register_next_step_handler(message, get_course_stavka);
         else:

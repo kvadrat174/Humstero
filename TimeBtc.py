@@ -83,6 +83,7 @@ def Countdown(id1):
     SP.clear()
     time.sleep(wait)
     sp = BC.get_latest_bitcoin_price()
+    sp = round(sp,2)
     nu = SP.kol_uch(wait_f)
     res = SP.nachalo(wait_f, id1)
     vi = res[1] * 2 * sp
