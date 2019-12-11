@@ -65,7 +65,7 @@ def Countdown(id1):
     if m % 5 != 0:
         ost_m = 5 - m % 5
     elif m % 5 == 0:
-        ost_m = 0
+        ost_m = 5
     if s % 60 != 0:
         ost_s = (60 - s % 60) // 1
         if ost_m >= 1:
